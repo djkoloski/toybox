@@ -14,11 +14,12 @@ public class ButtonController : MonoBehaviour {
 		get { return isOn; }
 	}
 
+	private Animator _animator;
 	private bool isOn = false;
 
 	// Use this for initialization
-	void Awake () {
-		
+	void Start () {
+		_animator = GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
@@ -29,10 +30,13 @@ public class ButtonController : MonoBehaviour {
 	public void TurnOn () {
 		isOn = true;
 		_buttonTarget.Interact ();
+		_animator.SetBool ("Pressed",true);
+
 	}
 
 	public void TurnOff () {
 		isOn = false;
 		_buttonTarget.Interact ();
+		_animator.SetBool ("Pressed",false);
 	}
 }
