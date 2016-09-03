@@ -12,6 +12,10 @@ public class PlayerController : MonoBehaviour
 	private float _speed;
 	[SerializeField]
 	private float _turnSpeed;
+	[SerializeField]
+	private float _gravity;
+	[SerializeField]
+	private float _jumpVelocity;
 
 	[Header("References")]
 	[SerializeField]
@@ -24,19 +28,21 @@ public class PlayerController : MonoBehaviour
 	}
 	public bool IsLookingAtInteractable
 	{
-		get { return isLookingAtInteractable_; }
+		get { return _isLookingAtInteractable; }
 	}
 
 	// Private variables
-	private CharacterController characterController_;
-	private bool isLookingAtInteractable_;
+	private CharacterController _characterController;
+	private float _verticalVelocity;
+	private bool _isLookingAtInteractable;
 
 	// Initialization
 	public void Awake()
 	{
 		instance = this;
-		characterController_ = GetComponent<CharacterController>();
-		isLookingAtInteractable_ = false;
+		_characterController = GetComponent<CharacterController>();
+		_verticalVelocity = 0.0f;
+		_isLookingAtInteractable = false;
 	}
 
 	// Update
@@ -54,12 +60,22 @@ public class PlayerController : MonoBehaviour
 
 		// Move relative to orientation
 		Vector3 movement = (transform.right * movementInput.x + transform.forward * movementInput.y) * _speed;
-		characterController_.SimpleMove(movement);
+		if (_characterController.isGrounded)
+		{
+			_verticalVelocity = 0.0f;
+			if (Input.GetButton("Jump"))
+			{
+				_verticalVelocity = _jumpVelocity;
+			}
+		}
+		_verticalVelocity += _gravity * Time.deltaTime;
+		movement.y = _verticalVelocity;
+		_characterController.Move(movement * Time.deltaTime);
 
 		// Update interactables
 		Interactable interactable = LookForInteractable();
-		isLookingAtInteractable_ = (interactable != null);
-		if (isLookingAtInteractable_ && InputManager.GetInteract())
+		_isLookingAtInteractable = (interactable != null);
+		if (_isLookingAtInteractable && InputManager.GetInteract())
 			interactable.Interact();
 	}
 
