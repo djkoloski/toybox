@@ -62,10 +62,21 @@ public class PlayerController : MonoBehaviour
 		Vector3 movement = (transform.right * movementInput.x + transform.forward * movementInput.y) * _speed;
 		if (_characterController.isGrounded)
 		{
+			RaycastHit hit;
+			if (Physics.Raycast(transform.position, Vector3.down, out hit, 0.1f, LayerMasks.Platforms))
+			{
+				transform.SetParent(hit.transform, true);
+			}
+			else
+			{
+				transform.SetParent(null);
+			}
+
 			_verticalVelocity = 0.0f;
 			if (Input.GetButton("Jump"))
 			{
 				_verticalVelocity = _jumpVelocity;
+				transform.SetParent(null);
 			}
 		}
 		_verticalVelocity += _gravity * Time.deltaTime;
