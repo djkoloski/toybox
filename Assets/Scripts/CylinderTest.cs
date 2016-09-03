@@ -16,7 +16,7 @@ public class CylinderTest : MonoBehaviour {
 	}
 
 	public void Launch () {
-		thisRigid.AddRelativeForce (0, 1000.0f, 0);
+		thisRigid.AddRelativeForce (0, 100.0f, 0);
 		Debug.Log ("Liftoff");
 	}
 }
