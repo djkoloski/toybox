@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
 	private CharacterController _characterController;
 	private float _verticalVelocity;
 	private bool _isLookingAtInteractable;
+    private Vector3 _startingPosition;
 
 	// Initialization
 	public void Awake()
@@ -43,6 +44,7 @@ public class PlayerController : MonoBehaviour
 		_characterController = GetComponent<CharacterController>();
 		_verticalVelocity = 0.0f;
 		_isLookingAtInteractable = false;
+        _startingPosition = transform.position;
 	}
 
 	// Update
@@ -88,6 +90,10 @@ public class PlayerController : MonoBehaviour
 		_isLookingAtInteractable = (interactable != null);
 		if (_isLookingAtInteractable && InputManager.GetInteract())
 			interactable.Interact();
+
+        // Respawn on kill
+        if (transform.position.y < -5.0f)
+            transform.position = _startingPosition;
 	}
 
 	// Public interface

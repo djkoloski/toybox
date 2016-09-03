@@ -52,7 +52,7 @@ public class GrabbableController : MonoBehaviour
         {
             MoveUtil.AccelerateClampedToward(
                 _rigidbody,
-                PlayerController.instance.transform.TransformPoint(_offset),
+                Camera.main.transform.TransformPoint(_offset),
                 _acceleration,
                 _maxAcceleration,
                 _maxVelocity,
