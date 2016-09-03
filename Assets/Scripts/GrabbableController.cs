@@ -31,11 +31,13 @@ public class GrabbableController : MonoBehaviour
     {
         _rigidbody.useGravity = false;
         _isGrabbed = true;
+        gameObject.layer = 10;
     }
     public void Release()
     {
         _rigidbody.useGravity = true;
         _isGrabbed = false;
+        gameObject.layer = 0;
     }
     public void ToggleGrabbed()
     {
