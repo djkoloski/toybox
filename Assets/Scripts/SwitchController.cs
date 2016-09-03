@@ -3,11 +3,6 @@ using System.Collections;
 
 public class SwitchController : MonoBehaviour {
 
-	//References to other objects
-	[Header("References")]
-	[SerializeField]
-	private Interactable _switchTarget;
-
 	//Public variable
 	public bool IsOn
 	{
@@ -32,13 +27,15 @@ public class SwitchController : MonoBehaviour {
 
 	//Toggle the switch
 	public void Toggle () {
-		isOn = !isOn
+		if (isOn)
+			TurnOff ();
+		else
+			TurnOn ();
 	}
 
 	//Called when the switch turns on
 	public void TurnOn () {
 		isOn = true;
-		_switchTarget.Interact ();
 		_animator.SetBool ("Switched",true);
 		Debug.Log (isOn);
 
@@ -47,7 +44,6 @@ public class SwitchController : MonoBehaviour {
 	//Called when the switch turns off
 	public void TurnOff () {
 		isOn = false;
-		_switchTarget.Interact ();
 		_animator.SetBool ("Switched",false);
 		Debug.Log (isOn);
 	}
