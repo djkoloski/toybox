@@ -12,6 +12,7 @@ public class ButtonController : MonoBehaviour {
 
 	//References to components
 	private Animator _animator;
+	private Interactable _interactable;
 
 	//Public variables
 	public bool IsOn
@@ -25,6 +26,7 @@ public class ButtonController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		_animator = GetComponent<Animator> ();
+		_interactable = GetComponent<Interactable> ();
 	}
 
 	// Update is called once per frame
@@ -35,7 +37,7 @@ public class ButtonController : MonoBehaviour {
 	//Called when the button turns on
 	public void TurnOn () {
 		isOn = true;
-		_buttonTarget.Interact ();
+		_interactable.Interact ();
 		_animator.SetBool ("Pressed",true);
 
 	}
@@ -43,7 +45,7 @@ public class ButtonController : MonoBehaviour {
 	//Called when the button turns off
 	public void TurnOff () {
 		isOn = false;
-		_buttonTarget.Interact ();
+		_interactable.Interact ();
 		_animator.SetBool ("Pressed",false);
 	}
 }

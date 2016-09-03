@@ -624,6 +624,39 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dfaad26c8fd4d6b4285cefce42c3ab7a, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2054840030 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012141278344, guid: dfaad26c8fd4d6b4285cefce42c3ab7a,
+    type: 2}
+  m_PrefabInternal: {fileID: 2054840027}
+--- !u!114 &2054840036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2054840030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d0fddf5a37ffce41a14f30274a1f4bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactableDistance: 0
+  onInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2074687649}
+        m_MethodName: Launch
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &2074687643
 GameObject:
   m_ObjectHideFlags: 0
