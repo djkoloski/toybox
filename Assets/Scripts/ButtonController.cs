@@ -3,18 +3,23 @@ using System.Collections;
 
 public class ButtonController : MonoBehaviour {
 
+	//References to other objects
 	[Header("References")]
 	[SerializeField]
 	private ButtonTriggerProxy _triggerProxy;
 	[SerializeField]
 	private Interactable _buttonTarget;
 
+	//References to components
+	private Animator _animator;
+
+	//Public variables
 	public bool IsOn
 	{
 		get { return isOn; }
 	}
 
-	private Animator _animator;
+	//Private variables
 	private bool isOn = false;
 
 	// Use this for initialization
@@ -27,6 +32,7 @@ public class ButtonController : MonoBehaviour {
 
 	}
 
+	//Called when the button turns on
 	public void TurnOn () {
 		isOn = true;
 		_buttonTarget.Interact ();
@@ -34,6 +40,7 @@ public class ButtonController : MonoBehaviour {
 
 	}
 
+	//Called when the button turns off
 	public void TurnOff () {
 		isOn = false;
 		_buttonTarget.Interact ();

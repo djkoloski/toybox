@@ -26,6 +26,12 @@ public class PlatformController : MonoBehaviour
 		_distance = 0.0f;
 	}
 
+	// Public interface
+	public void ToggleActive()
+	{
+		_active = !_active;
+	}
+
 	// Update
 	public void Update()
 	{

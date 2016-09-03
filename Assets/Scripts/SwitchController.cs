@@ -32,12 +32,10 @@ public class SwitchController : MonoBehaviour {
 
 	//Toggle the switch
 	public void Toggle () {
-		if (isOn)
-			TurnOff ();
-		else
-			TurnOn ();
+		isOn = !isOn
 	}
 
+	//Called when the switch turns on
 	public void TurnOn () {
 		isOn = true;
 		_switchTarget.Interact ();
@@ -46,6 +44,7 @@ public class SwitchController : MonoBehaviour {
 
 	}
 
+	//Called when the switch turns off
 	public void TurnOff () {
 		isOn = false;
 		_switchTarget.Interact ();
