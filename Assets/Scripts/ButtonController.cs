@@ -7,8 +7,6 @@ public class ButtonController : MonoBehaviour {
 	[Header("References")]
 	[SerializeField]
 	private ButtonTriggerProxy _triggerProxy;
-	[SerializeField]
-	private Interactable _buttonTarget;
 
 	//References to components
 	private Animator _animator;

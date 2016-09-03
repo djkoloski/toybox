@@ -36,8 +36,7 @@ public class SwitchController : MonoBehaviour {
 	//Called when the switch turns on
 	public void TurnOn () {
 		isOn = true;
-		_animator.SetBool ("Switched",true);
-		Debug.Log (isOn);
+		_animator.SetBool ("Switched", true);
 
 	}
 
@@ -45,6 +44,5 @@ public class SwitchController : MonoBehaviour {
 	public void TurnOff () {
 		isOn = false;
 		_animator.SetBool ("Switched",false);
-		Debug.Log (isOn);
 	}
 }
