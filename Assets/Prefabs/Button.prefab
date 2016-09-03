@@ -38,6 +38,7 @@ GameObject:
   - 4: {fileID: 4000010251310944}
   - 114: {fileID: 114000011014040402}
   - 95: {fileID: 95000012293705250}
+  - 114: {fileID: 114000011956044288}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -260,7 +261,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _triggerProxy: {fileID: 114000013761860680}
-  _buttonTarget: {fileID: 0}
+--- !u!114 &114000011956044288
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012141278344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d0fddf5a37ffce41a14f30274a1f4bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactableDistance: 0
+  onInteract:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114000013761860680
 MonoBehaviour:
   m_ObjectHideFlags: 1
